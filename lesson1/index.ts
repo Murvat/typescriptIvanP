@@ -15,7 +15,7 @@
 //     const data = JSON.parse(response);
 //     return data;
 // }
-
+//finish
 // function transferEurToUsd(available:boolean, amount:number, comission:number):void {
 //     if (available) {
 //         let res = fetchCurr(currRate) * amount *comission
