@@ -1,1 +1,1 @@
-*this.firstRef = React.createRef()
+this.firstRef = React.createRef()
