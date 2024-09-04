@@ -45,4 +45,55 @@
 
 //
 
-const message: string|number='2'
+// const message: string|number='2'
+
+// function printMsg(msg: string | number | boolean):void {
+//     if (typeof msg === 'string') {
+//         msg.toUpperCase()
+//     } else if (typeof msg === 'number') {
+//         msg.toExponential();
+        
+//     }
+// }
+// let msg: 'hello' = 'hello';
+// msg = 'hello';
+// const portal3000: number = 3000;
+// const portal3001: number = 3001;
+// function startServer(
+//     protocol: 'http' | 'https',
+//     port: 3000 | 3001): 'Server started' {
+
+//     return 'Server started';
+    
+// }
+
+// function createAnimation(id: string | number,) {
+//     const elem = document.querySelector(`#${id}`) as HTMLElement;
+//     elem ?elem.style.animation = '' : null;
+// }
+
+// type AnimationTimingFunc = 'ease' | 'ease' | 'ease-in';
+// type AnimationID = string | number;
+// function createAnimation(
+//     id: AnimationID,
+//     animName: string,
+//     timingFunc:AnimationTimingFunc
+// ) {
+//     const elem = document.querySelector(`#${id}`) as HTMLElement;
+//     elem ?elem.style.animation = '' : null;
+// }
+
+const serverConfig:{protocol:'http' | 'https',port: 3000 | 3001 } = {
+    protocol: 'https',
+    port:3001
+}
+function startServer(
+    protocol: 'http' | 'https',
+    port: 3000 | 3001): 'Server started' {
+
+    return 'Server started';
+};
+
+startServer(serverConfig.protocol, serverConfig.port)
+
+
