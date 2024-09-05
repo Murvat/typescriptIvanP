@@ -83,17 +83,68 @@
 //     elem ?elem.style.animation = '' : null;
 // }
 
-const serverConfig:{protocol:'http' | 'https',port: 3000 | 3001 } = {
+
+//TYPES
+ type Config={protocol:'http' | 'https',port: 3000 | 3001 }
+
+
+const serverConfig: Config = {
     protocol: 'https',
     port:3001
 }
-function startServer(
+
+const backupConfig: Config = {
+    protocol: 'http',
+    port: 3000
+};
+
+
+
+type Engine = { fuel: 'disel' | 'gas', hp: 5000 | 2000 };
+type Role = {
+    role:string
+}
+type ConfigWithRole = Engine & Role;
+const car: ConfigWithRole = {
+    fuel: 'disel',
+    hp: 5000,
+    role:'Bmw'
+}
+
+type StartFunction = (
     protocol: 'http' | 'https',
-    port: 3000 | 3001): 'Server started' {
+    port: 3000 | 3001) => string;
+
+
+const  startServer:StartFunction=(
+    protocol: 'http' | 'https',
+    port: 3000 | 3001): 'Server started' => {
 
     return 'Server started';
 };
 
-startServer(serverConfig.protocol, serverConfig.port)
+startServer(serverConfig.protocol, serverConfig.port);
 
 
+//INTERFACES
+type Reguest1 = { protocol: 'https' | 'https'; port: 3000 | 3001 };
+
+interface Reguest2 {
+    protocol: 'http' | 'https';
+    port: 3000 | 3001;
+}
+
+interface IRole{
+    role: string;
+}
+
+interface ReguestWithRole extends Config, Role { };
+
+interface Styles{
+    [key: string]: string;
+}
+const styles:Styles = {
+    position: 'absolute',
+    top: '20px',
+    left:'50px',
+}
