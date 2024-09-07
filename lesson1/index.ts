@@ -1,6 +1,8 @@
 // let  str: string = 'str';
 // // str = 5;
 
+import { json } from "stream/consumers";
+
 // const isBirthday: boolean = true;
 // let ageData: number = 4;
 // const userNameData: string = 'John';
@@ -148,3 +150,26 @@ const styles:Styles = {
     top: '20px',
     left:'50px',
 }
+
+
+//TYPE INFERENCE
+let a = 'string';
+let salary;
+
+interface userData{
+    a: boolean;
+    b: string;
+    c:number
+
+}
+
+const userData = '{"a":true, "b":"string", "c":40}';
+const userObj: userData = JSON.parse(userData);
+console.log(userObj);
+
+let isOkay = true;
+let movement:boolean|string = false;
+if (isOkay) {
+    movement = 'moving'
+}
+ 
