@@ -255,3 +255,4 @@ function fetchData(data: unknown): void{
     }
     
 }
+//Type ASSORTION
