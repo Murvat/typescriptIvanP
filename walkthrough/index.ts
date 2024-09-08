@@ -211,3 +211,47 @@ const userFreeze: Readonly<User> = {
 };
 
 // userFreeze.age = 34;
+
+
+//ENUMS
+
+const TOP = 'Top';
+const RIGHT = 'Right';
+
+enum Directions {
+    TOP,
+    RIGHT,
+    LEFT,
+    BOTTOM
+}
+
+enum timingFunc {
+    EASE=1,
+    EASE_IN=10,
+    LINEAR=20,
+}
+function frame(elem: string, dir: Directions, tFunc: timingFunc): void{
+    if (dir === Directions.RIGHT) {
+        
+    }
+} 
+
+frame('id', Directions.RIGHT, timingFunc.EASE);
+
+//UNKNOWN
+
+let smth: unknown;
+smth = 'sns';
+
+// let data: string[] = smth;
+// data.find(e => e);
+
+const someValue: unknown = 10;
+// someValue.method();
+
+function fetchData(data: unknown): void{
+    if (typeof data === 'string') {
+        console.log(data.toLocaleLowerCase());
+    }
+    
+}
