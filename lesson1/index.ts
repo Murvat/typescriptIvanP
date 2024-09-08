@@ -172,4 +172,42 @@ let movement:boolean|string = false;
 if (isOkay) {
     movement = 'moving'
 }
- 
+
+//Property Modifiers
+
+interface User{
+    readonly login: string;
+    password: string;
+    age: number;
+    addr?: string;
+    parents?: {
+        mother?: string;
+        father?: string;
+    }
+};
+
+const user: User={
+    login: 'first',
+    password: 'qwerty',
+    age:50    
+}
+let  dbName:string;
+function sendUserData(obj: User, db?: string): void{
+    console.log(obj, db?.toLocaleLowerCase());
+}
+console.log(dbName!);
+//Non-Null Non-Undefined
+//  function sendUserData2(obj: User, db?: string): void{
+//     console.log(obj.parents!.father?.toLocaleLowerCase(), db!.toLocaleLowerCase());
+// }
+
+const basicPorts:readonly [number,...string[]]=[3000,'3001','3002']
+const basicPorts2: ReadonlyArray<number> = [3000, 3002, 4000];
+// basicPorts2.push(32)
+const userFreeze: Readonly<User> = {
+    login: 'first',
+    password: 'qwerty',
+    age: 50
+};
+
+// userFreeze.age = 34;
