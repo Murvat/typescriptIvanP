@@ -1,7 +1,9 @@
 // let  str: string = 'str';
 // // str = 5;
 
+import { number } from "prop-types";
 import { json } from "stream/consumers";
+import { deprecate } from "util";
 
 // const isBirthday: boolean = true;
 // let ageData: number = 4;
@@ -255,4 +257,92 @@ function fetchData(data: unknown): void{
     }
     
 }
-//Type ASSORTION
+//Type ASSERTION
+const fetchData2 = (url: string, method: 'GET' | 'POST'): void => {
+    console.log("fetched");
+}
+
+const reqOptions = {
+    url: "https/someurl.com",
+    method:"GET"
+}
+
+fetchData2('qqq', 'GET');
+fetchData2(reqOptions.url, reqOptions.method as 'GET');
+
+const box = document.querySelector('.box') as HTMLElement;
+
+let au = 'value' as const;
+let b = { f: 100 } as const;
+let c = [] as const;
+
+//INNER TYPES
+let  num = new Number(5);
+let num2: number = 5;
+
+
+interface Department{
+    name: string,
+    budget:number
+}
+
+const department: Department = {
+    name: 'web-dev',
+    budget:5000
+}
+
+interface Project{
+    name: string,
+    projectBudget:number
+}
+
+
+function tranformDepartment(department: Department, amount: number): Project{
+    return {
+        name: department.name,
+        projectBudget:amount
+    }
+}
+
+const mainProject: Project = tranformDepartment(department, 4000);
+
+//TYPE GUARD
+
+function isNumber(n: string[] | number | boolean): n is number{
+    return typeof n === 'number';
+    
+}
+
+interface Car {
+    engine: string;
+    wheels: {
+        number: number,
+        type:string
+        
+    };
+}
+
+interface Ship {
+    engine: string;
+    sail:string
+}
+
+function repairVehicle(vehicle: Car | Ship) {
+    if (isCar(vehicle)) {
+    vehicle.wheels
+    } else {
+        vehicle.sail
+}}
+
+function isCar(car: Car | Ship): car is Car{
+    return (car as Car).wheels.number !== undefined;
+}
+
+function isShip(ship: Car | Ship): ship is Ship{
+    return (ship as Ship).sail !== undefined;
+}
+
+
+
+
+
